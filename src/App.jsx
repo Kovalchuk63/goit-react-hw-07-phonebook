@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Phonebook } from 'components/Phonebook/Phonebook';
 import { Filter } from 'components/Filter/Filter';
 import { ContactsList } from 'components/Contacts/Contacts';
