@@ -1,18 +1,18 @@
 import React from 'react';
+import Notiflix from 'notiflix';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Button, ErrMsg, StyledField, StyledForm } from './Phonebook.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import Notiflix from 'notiflix';
-import { addContact } from 'redux/api';
 import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/api';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .required('Name is required')
     .min(2, 'Name must be 2 characters long')
     .matches('[a-zA-Zа-яА-ЯіІїЇ]+', 'Enter valid symbols'),
-  number: Yup.string()
+  phone: Yup.string()
     .required('Phone number is required')
     .matches(
       '[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}',

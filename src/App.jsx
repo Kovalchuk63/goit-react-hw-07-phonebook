@@ -3,7 +3,7 @@ import { Phonebook } from 'components/Phonebook/Phonebook';
 import { Filter } from 'components/Filter/Filter';
 import { ContactsList } from 'components/Contacts/Contacts';
 import { Layout, TitleH1, TitleH2 } from 'Layout';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectError, selectLoading } from 'redux/selectors';
 import { fetchContacts } from 'redux/api';
 import { BeatLoaderStyled, Error } from 'Message';
@@ -12,10 +12,12 @@ export const App = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    dispath(fetchContacts());
-  }, [dispath]);
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <React.Fragment>
       <Layout>
